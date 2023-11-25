@@ -1,0 +1,93 @@
+CHIP Log2 {
+  IN in[16];
+  OUT out[16];
+
+  PARTS:
+  And(a = in[15], b = true, out = a);
+  Add16(a[0] = a, a[1] = a, a[2] = a, a[3] = a, a[4] = a, a[5] = a, a[6] = a, a[7] = a, a[8] = a, a[9] = a, a[10] = a, a[11] = a, a[12] = a, a[13] = a, a[14] = a, a[15] = a, b = false, out = sum0);
+  Not(in = a, out = nota);
+  
+  And(a = in[15], b = nota, out = num15);
+  And(a = in[14], b = nota, out = num14);
+  And(a = in[13], b = nota, out = num13);
+  And(a = in[12], b = nota, out = num12);
+  And(a = in[11], b = nota, out = num11);
+  And(a = in[10], b = nota, out = num10);
+  And(a = in[9], b = nota, out = num9);
+  And(a = in[8], b = nota, out = num8);
+  And(a = in[7], b = nota, out = num7);
+  And(a = in[6], b = nota, out = num6);
+  And(a = in[5], b = nota, out = num5);
+  And(a = in[4], b = nota, out = num4);
+  And(a = in[3], b = nota, out = num3);
+  And(a = in[2], b = nota, out = num2);
+  And(a = in[1], b = nota, out = num1);
+  And(a = in[0], b = nota, out = num0);
+
+  And(a = num14, b = outa, out = out1);
+  Add16(a[0] = false, a[1] = out1, a[2] = out1, a[3] = out1, a[4..15] = false, b = sum0, out = sum1);
+  Not(in = out1, out = notOut1);
+
+  And(a = num13, b = notOut1, out = out2);
+  Add16(a[0] = out2, a[1] = false, a[2] = out2, a[3] = out2, a[4..15] = false, b = sum1, out = sum2);
+  Not(in = out2, out = notOut2);
+
+  And(a = notOut2, b = notOut1, out = notOut02);
+  And(a = num12, b = notOut02, out = out3);
+  Add16(a[0] = false, a[1] = false, a[2] = out3, a[3] = out3, a[4..15] = false, b = sum2, out = sum3);
+  Not(in = out3, out = notOut3);
+
+  And(a = notOut02, b = notOut3, out = notOut03);
+  And(a = num11, b = notOut03, out = out4);
+  Add16(a[0] = out4, a[1] = out4, a[2] = false, a[3] = out4, a[4..15] = false, b = sum3, out = sum4);
+  Not(in = out4, out = notOut4);
+
+  And(a = notOut03, b = notOut4, out = notOut04);
+  And(a = num10, b = notOut04, out = out5);
+  Add16(a[0] = false, a[1] = out5, a[2] = false, a[3] = out5, a[4..15] = false, b = sum4, out = sum5);
+  Not(in = out5, out = notOut5);
+
+  And(a = notOut04, b = notOut5, out = notOut05);
+  And(a = num9, b = notOut05, out = out6);
+  Add16(a[0] = out6, a[1] = false, a[2] = false, a[3] = out6, a[4..15] = false, b = sum5, out = sum6);
+  Not(in = out6, out = notOut6);
+
+  And(a = notOut05, b = notOut6, out = notOut06);
+  And(a = num8, b = notOut06, out = out7);
+  Add16(a[0] = false, a[1] = false, a[2] = false, a[3] = out7, a[4..15] = false, b = sum6, out = sum7);
+  Not(in = out7, out = notOut7);
+
+  And(a = notOut06, b = notOut7, out = notOut07);
+  And(a = num7, b = notOut07, out = out8);
+  Add16(a[0] = out8, a[1] = out8, a[2] = out8, a[3..15] = false, b = sum7, out = sum8);
+  Not(in = out8, out = notOut8);
+
+  And(a = notOut07, b = notOut8, out = notOut08);
+  And(a = num6, b = notOut08, out = out9);
+  Add16(a[0] = false, a[1] = out9, a[2] = out9, a[3..15] = false, b = sum8, out = sum9);
+  Not(in = out9, out = notOut9);
+
+  And(a = notOut08, b = notOut9, out = notOut09);
+  And(a = num5, b = notOut09, out = out10);
+  Add16(a[0] = out10, a[1] = false, a[2] = out10, a[3..15] = false, b = sum9, out = sum10);
+  Not(in = out10, out = notOut10);
+
+  And(a = notOut09, b = notOut10, out = notOut010);
+  And(a = num4, b = notOut010, out = out11);
+  Add16(a[0] = false, a[1] = false, a[2] = out11, a[3..15] = false, b = sum10, out = sum11);
+  Not(in = out11, out = notOut11);
+
+  And(a = notOut010, b = notOut11, out = notOut011);
+  And(a = num3, b = notOut011, out = out12);
+  Add16(a[0] = out12, a[1] = out12, a[2..15] = false, b = sum11, out = sum12);
+  Not(in = out12, out = notOut12);
+
+  And(a = notOut011, b = notOut12, out = notOut012);
+  And(a = num2, b = notOut012, out = out13);
+  Add16(a[0] = false, a[1] = out13, a[2..15] = false, b = sum12, out = sum13);
+  Not(in = out13, out = notOut13);
+	
+  And(a = notOut012, b = notOut13, out = notOut013);
+  And(a = num1, b = notOut013, out = out14);
+  Add16(a[0] = out14, a[1..15] = false, b = sum13, out = out);    
+}

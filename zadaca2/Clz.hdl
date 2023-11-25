@@ -1,0 +1,84 @@
+CHIP Clz {
+  IN in[16];
+  OUT out[16];
+  
+  PARTS:
+  Or(a = in[15], b = false, out = out15);
+  Not(in = out15, out = notOut15);
+  Add16(a[0] = out15, a[1..15] = false, b = false, out = sum15);
+
+  Or(a = in[14], b = false, out = out14);
+  Not(in = out14, out = notOut14);
+  And(a = notOut14, b = notOut15, out = andOut14);
+  Add16(a[0] = andOut14, a[1..15] = false, b = sum15, out = sum14);
+	
+  Or(a = in[13], b = false, out = out13);
+  Not(in = out13, out = notOut13);
+  And(a = notOut13, b = notOut14, out = andOut13);
+  Add16(a[0] = andOut13, a[1..15] = false, b = sum14, out = sum13);
+
+  Or(a = in[12], b = false, out = out12);
+  Not(in = out12, out = notOut12);
+  And(a = notOut12, b = notOut13, out = andOut12);
+  Add16(a[0] = andOut12, a[1..15] = false, b = sum13, out = sum12);
+	
+  Or(a = in[11], b = false, out = out11);
+  Not(in = out11, out = notOut11);
+  And(a = notOut11, b = notOut12, out = andOut11);
+  Add16(a[0] = andOut11, a[1..15] = false, b = sum12, out = sum11);
+	
+  Or(a = in[10], b = false, out = out10);
+  Not(in = out10, out = notOut10);
+  And(a = notOut10, b = notOut11, out = andOut10);
+  Add16(a[0] = andOut10, a[1..15] = false, b = sum11, out = sum10);
+	
+  Or(a = in[9], b = false, out = out9);
+  Not(in = out9, out = notOut9);
+  And(a = notOut9, b = notOut10, out = andOut9);
+  Add16(a[0] = andOut9, a[1..15] = false, b = sum10, out = sum9);
+	
+  Or(a = in[8], b = false, out = out8);
+  Not(in = out8, out = notOut8);
+  And(a = notOut8, b = notOut9, out = andOut8);
+  Add16(a[0] = andOut8, a[1..15] = false, b = sum9, out = sum8);
+	
+  Or(a = in[7], b = false, out = out7);
+  Not(in = out7, out = notOut7);
+  And(a = notOut7, b = notOut8, out = andOut7);
+  Add16(a[0] = andOut7, a[1..15] = false, b = sum8, out = sum7);
+	
+  Or(a = in[6], b = false, out = out6);
+  Not(in = out6, out = notOut6);
+  And(a = notOut6, b = notOut7, out = andOut6);
+  Add16(a[0] = andOut6, a[1..15] = false, b = sum7, out = sum6);
+	
+  Or(a = in[5], b = false, out = out5);
+  Not(in = out5, out = notOut5);
+  And(a = notOut5, b = notOut6, out = andOut5);
+  Add16(a[0] = andOut5, a[1..15] = false, b = sum6, out = sum5);
+	
+  Or(a = in[4], b = false, out = out4);
+  Not(in = out4, out = notOut4);
+  And(a = notOut4, b = notOut5, out = andOut4);
+  Add16(a[0] = andOut4, a[1..15] = false, b = sum5, out = sum4);
+	
+  Or(a = in[3], b = false, out = out3);
+  Not(in = out3, out = notOut3);
+  And(a = notOut3, b = notOut4, out = andOut3);
+  Add16(a[0] = andOut3, a[1..15] = false, b = sum4, out = sum3);
+	
+  Or(a = in[2], b = false, out = out2);
+  Not(in = out2, out = notOut2);
+  And(a = notOut2, b = notOut3, out = andOut2);
+  Add16(a[0] = andOut2, a[1..15] = false, b = sum3, out = sum2);
+	
+  Or(a = in[1], b = false, out = out1);
+  Not(in = out1, out = notOut1);
+  And(a = notOut1, b = notOut2, out = andOut1);
+  Add16(a[0] = andOut1, a[1..15] = false, b = sum2, out = sum1);
+	
+  Or(a = in[0], b = false, out = out0);
+  Not(in = out0, out = notOut0);
+  And(a = notOut0, b = notOut1, out = andOut0);
+  Add16(a[0] = andOut0, a[1..15] = false, b = sum1, out = out);
+}
