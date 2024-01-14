@@ -1,0 +1,24 @@
+function pell 0
+    push argument 0
+    push constant 1
+    lt
+    if-goto baseCase
+        // n >= 2
+        push argument 0
+        push constant 1
+        sub
+        call pell 1
+        push argument 0
+        push constant 2
+        sub
+        call pell 1
+        push temp 0  // P_{n-1}
+        push temp 0  // P_{n-1}
+        add
+        push temp 1  // P_{n-2}
+        add
+        return
+
+label baseCase
+    push argument 0
+    return
